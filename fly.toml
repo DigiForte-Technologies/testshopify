@@ -1,0 +1,31 @@
+# fly.toml app configuration file generated for testing-app-muddy-pond-2750 on 2025-04-23T08:06:40Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'testing-app-muddy-pond-2750'
+primary_region = 'phx'
+
+[build]
+
+
+[env]
+  PORT=3000
+  SCOPES = 'write_products'
+  SHOPIFY_API_KEY = '7bdf0f3199b72173671c4a8c250740f2'
+  SHOPIFY_APP_URL = 'https://testing-app-muddy-pond-2750.fly.dev'
+  HOST = 'https://testing-app-muddy-pond-2750.fly.dev'
+
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
